@@ -35,6 +35,7 @@ public class MyBatisCompleteTest {
                 sqlSession.close();
             }
             System.out.println("hello git");
+            System.out.println("hello github");
         }
     }
 }
