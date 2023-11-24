@@ -34,13 +34,6 @@ public class MyBatisCompleteTest {
             if (sqlSession !=null){
                 sqlSession.close();
             }
-            System.out.println("hello git");
-            System.out.println("hello github");
-            System.out.println("hello hot-fix");
-            System.out.println("hello master");
-            System.out.println("hello hot-fix2");
-            System.out.println("push mybatis");
-            System.out.println("pull mybatis");
         }
     }
 }
