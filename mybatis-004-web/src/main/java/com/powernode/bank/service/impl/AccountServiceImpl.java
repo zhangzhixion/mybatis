@@ -6,11 +6,17 @@ import com.powernode.bank.exceptions.MoneyNotEnoughException;
 import com.powernode.bank.exceptions.TransferException;
 import com.powernode.bank.pojo.Account;
 import com.powernode.bank.service.AccountService;
+import com.powernode.bank.utils.GenerateDaoProxy;
 import com.powernode.bank.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 
 public class AccountServiceImpl implements AccountService {
-    AccountDao accountDao = new AccountDaoImpl();
+    //private AccountDao accountDao = new AccountDaoImpl();
+    //自己封装的动态有问题
+    //private AccountDao accountDao = (AccountDao) GenerateDaoProxy.generate(SqlSessionUtil.openSession(), AccountDao.class);
+
+    private AccountDao accountDao = SqlSessionUtil.openSession().getMapper(AccountDao.class);
+
     @Override
     public void transfer(String fromActno, String toActno, double money) throws MoneyNotEnoughException, TransferException {
         //添加事务控制代码
